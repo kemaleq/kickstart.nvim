@@ -388,6 +388,7 @@ require('lazy').setup({
 
           -- Find references for the word under your cursor.
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+          map('gr', require('telescope.builtin').lsp_references, '[G]oto [U]sages')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
@@ -705,7 +706,6 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'rose-pine'
-
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
@@ -713,10 +713,42 @@ require('lazy').setup({
     config = function()
       require('rose-pine').setup {
         styles = {
-          transparency = true,
+          --transparency = true,
         },
       }
     end,
+  },
+  {
+    'xiyaowong/transparent.nvim',
+    opts = {
+      groups = {
+        'Normal',
+        'NormalNC',
+        'Comment',
+        'Constant',
+        'Special',
+        'Identifier',
+        'Statement',
+        'PreProc',
+        'Type',
+        'Underlined',
+        'Todo',
+        'String',
+        'Function',
+        'Conditional',
+        'Repeat',
+        'Operator',
+        'Structure',
+        'LineNr',
+        'NonText',
+        'SignColumn',
+        'CursorLine',
+        'CursorLineNr',
+        'StatusLine',
+        'StatusLineNC',
+        'EndOfBuffer',
+      },
+    },
   },
 
   -- Highlight todo, notes, etc in comments
