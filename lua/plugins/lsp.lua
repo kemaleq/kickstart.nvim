@@ -57,6 +57,13 @@ return {
       require('lspconfig').yamlls.setup {}
       require('lspconfig').marksman.setup {}
       require('lspconfig').omnisharp.setup {
+        cmd = { 'dotnet', vim.fn.stdpath 'data' .. '/mason/packages/omnisharp/libexec/OmniSharp.dll' },
+        enable_import_completion = true,
+        organize_imports_on_format = true,
+        enable_roslyn_analyzers = true,
+        root_dir = function()
+          return vim.loop.cwd() -- current working directory
+        end,
         handlers = {
           ['textDocument/definition'] = require('omnisharp_extended').definition_handler,
           ['textDocument/typeDefinition'] = require('omnisharp_extended').type_definition_handler,
