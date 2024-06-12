@@ -36,6 +36,7 @@ return {
         opts = {},
       },
       { 'Hoffs/omnisharp-extended-lsp.nvim' },
+      { 'j-hui/fidget.nvim', opts = {} },
     },
 
     config = function()
